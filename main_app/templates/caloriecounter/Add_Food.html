@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+        <title>Add Foods</title>
+    </head>
+    <body>
+        <div>
+            <h1>Add Foods</h1>
+            <form action="#" name="add-food">
+              <label>
+                Food
+                <input type="text" name="food" placeholder="Food Name">
+              </label>
+              <label>
+                Food
+                <input type="text" name="food" placeholder="Food Name">
+              </label>
+              <div class="flex-container">
+                <div onClick="document.forms['add-food'].submit();" class="button">Submit</div>
+                <div class="button">Cancel</div>
+              </div>
+            </form>
+        </div>
+    </body>
+</html>
