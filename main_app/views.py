@@ -28,6 +28,7 @@ class FoodIndex(ListView):
 class FoodCreate(CreateView):
     model = Food
     fields = ('name', 'calories')
+    template_name = 'caloriecounter/Add_Food.html'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
