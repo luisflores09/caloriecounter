@@ -9,7 +9,7 @@ class User(models.Model):
 class Home(models.Model):
     pass
 
-class Food():
+class Food(models.Model):
     name = models.CharField(max_length=100)
     calories = models.IntegerField()
 
