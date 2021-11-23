@@ -26,14 +26,12 @@ class FoodIndex(ListView):
     #     return queryset
 
 class FoodCreate(CreateView):
-    template_name = 'caloriecounter/Add_Food.html'
     model = Food
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 class FoodUpdate(UpdateView):
-    template_name = 'caloriecouter/Add_Food.html'
     model = Food
 
 class FoodDelete(DeleteView):
