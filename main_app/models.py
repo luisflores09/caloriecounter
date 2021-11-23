@@ -13,3 +13,5 @@ class Food(models.Model):
     name = models.CharField(max_length=100)
     calories = models.IntegerField()
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def get_absolute_url(self):
+        return reverse('index')
