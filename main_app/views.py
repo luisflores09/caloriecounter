@@ -20,7 +20,7 @@ class Home(ListView):
 
 class FoodIndex(ListView):
     model = Food
-    template_name = 'caloriecouter/list_foods.html'
+    template_name = 'caloriecounter/list_foods.html'
     # def get_queryset(self):
     #     queryset = Food.objects.filter(user=self.request.user)
     #     return queryset
