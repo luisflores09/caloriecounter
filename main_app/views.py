@@ -19,24 +19,23 @@ class Home(ListView):
 
 class FoodIndex(ListView):
     model = Food
-    template_name = ''
+    template_name = 'caloriecouter'
     def get_queryset(self):
         queryset = Food.objects.filter(user=self.request.user)
         return queryset
 
 class FoodCreate(CreateView):
-    template_name = ''
+    template_name = 'caloriecounter/Add_Food.html'
     model = Food
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 class FoodUpdate(UpdateView):
-    template_name = ''
+    template_name = 'caloriecounter/'
     model = Food
 
 class FoodDelete(DeleteView):
-    template_name = ''
     model = Food
     success_url = '/'
 
