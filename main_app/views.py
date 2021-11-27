@@ -17,12 +17,15 @@ from django.contrib.auth import login
 class Home(ListView):
     template_name = 'caloriecounter/index.html'
     model = Home
+    def get_queryset(self):
+        queryset = Food.objects.all()
+        return queryset
 
 class FoodIndex(ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'
     def get_queryset(self):
-        queryset = Food.objects
+        queryset = Food.objects.all()
         return queryset
 
 class FoodCreate(CreateView):
