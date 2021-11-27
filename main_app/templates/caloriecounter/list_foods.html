@@ -28,8 +28,8 @@
                     <tr>
                       <td>{{ food.name }}</td>
                       <td>{{ food.calories }}</td>
-                      <td class="icon-container"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></td>
-                      <td class="icon-container"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></td>
+                      <td class="icon-container"><a href="{% url 'food_update' food.id %}"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></a></td>
+                      <td class="icon-container"><a href="{% url 'food_delete' food.id %}"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></a></td>
                     </tr>
                   {% endfor %}
                 {% endblock %}
