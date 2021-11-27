@@ -16,8 +16,10 @@
         </h4>
         <form action="" method="post">
             {% csrf_token %}
-            <input class="btn red" type="submit" value="Yes - Delete">
-            <a classs="btn blue" href="/caloriecounter"> Cancel</a>
+            <div class="flex-container">
+                <div class="button" onclick="document.querySelector('form').submit()">Delete</div>
+                <a href="/caloriecounter"><div class="button">Cancel</div></a>
+            </div>
         </form>
 
         {% endblock %}
