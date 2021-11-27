@@ -86,23 +86,25 @@ tr:hover {
 }
 
 tr:first-child {
-  border-radius: 15px 15px 0 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 tr:first-child > th:first-child {
-  border-radius: 15px 0 0 0;
+  border-top-left-radius: 15px;
 }
 tr:first-child > th:last-child {
-  border-radius: 0 15px 0 0;
+  border-top-right-radius: 15px;
 }
 
 tr:last-child {
-  border-radius: 0 0 15px 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 tr:last-child > td:last-child {
-  border-radius: 0 0 15px 0;
+  border-bottom-right-radius: 15px;
 }
 tr:last-child > td:first-child {
-  border-radius: 0 0 0 15px;
+  border-bottom-left-radius: 15px;
 }
 
 a, a:active, a:focus, a:hover {
