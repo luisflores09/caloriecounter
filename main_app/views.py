@@ -21,9 +21,9 @@ class Home(ListView):
 class FoodIndex(ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'
-    # def get_queryset(self):
-    #     queryset = Food.objects.filter(user=self.request.user)
-    #     return queryset
+    def get_queryset(self):
+        queryset = Food.objects
+        return queryset
 
 class FoodCreate(CreateView):
     model = Food
