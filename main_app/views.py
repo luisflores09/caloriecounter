@@ -38,6 +38,7 @@ class FoodCreate(CreateView):
 
 class FoodUpdate(UpdateView):
     model = Food
+    fields = ('name','calories')
 
 class FoodDelete(DeleteView):
     model = Food
