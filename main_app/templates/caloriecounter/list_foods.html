@@ -23,30 +23,16 @@
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
-                <tr>
-                  <td>Chicken</td>
-                  <td>350</td>
-                  <td class="icon-container"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></td>
-                  <td class="icon-container"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></td>
-                </tr>
-                <tr>
-                  <td>Fries</td>
-                  <td>190</td>
-                  <td></td>
-                  <td>x</td>
-                </tr>
-                <tr>
-                  <td>Salad</td>
-                  <td>150</td>
-                  <td></td>
-                  <td>x</td>
-                </tr>
-                <tr>
-                  <td>Doughnut</td>
-                  <td>200</td>
-                  <td></td>
-                  <td>x</td>
-                </tr>
+                {% block content %}
+                  {% for food in object_list %}
+                    <tr>
+                      <td>{{ food.name }}</td>
+                      <td>{{ food.calories }}</td>
+                      <td class="icon-container"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></td>
+                      <td class="icon-container"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></td>
+                    </tr>
+                  {% endfor %}
+                {% endblock %}
               </table>
             </div>
             <div class="flex-container">
