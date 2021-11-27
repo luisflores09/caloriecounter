@@ -41,7 +41,7 @@ class FoodUpdate(UpdateView):
 
 class FoodDelete(DeleteView):
     model = Food
-    success_url = '/'
+    success_url = '/caloriecounter/'
 
 
 def signup(request):
