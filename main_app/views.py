@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from django.views.generic import ListView
@@ -10,51 +10,54 @@ from .models import Home, Food
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login
 
 # Create your views here.
 
 class Home(ListView):
     template_name = 'caloriecounter/index.html'
     model = Home
+    def get_queryset(self):
+        queryset = Food.objects.all()
+        return queryset
 
 class FoodIndex(ListView):
     model = Food
-    template_name = 'caloriecouter'
+    template_name = 'caloriecounter/list_foods.html'
     def get_queryset(self):
-        queryset = Food.objects.filter(user=self.request.user)
+        queryset = Food.objects.all()
         return queryset
 
 class FoodCreate(CreateView):
-    template_name = 'caloriecounter/Add_Food.html'
     model = Food
+    fields = ('name', 'calories')
+    template_name = 'caloriecounter/Add_Food.html'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 class FoodUpdate(UpdateView):
-    template_name = 'caloriecounter/'
     model = Food
+    fields = ('name','calories')
 
 class FoodDelete(DeleteView):
     model = Food
-    success_url = '/'
+    success_url = '/caloriecounter/'
 
 
-# def signup(request):
-#   error_message = ''
-#   if request.method == 'POST':
-#     # This is how to create a 'user' form object
-#     # that includes the data from the browser
-#     form = UserCreationForm(request.POST)
-#     if form.is_valid():
-#       # This will add the user to the database
-#       user = form.save()
-#       # This is how we log a user in via code
-#       login(request, user)
-#       return redirect('index')
-#     else:
-#       error_message = 'Invalid sign up - try again'
-#   # A bad POST or a GET request, so render signup.html with an empty form
-#   form = UserCreationForm()
-#   context = {'form': form, 'error_message': error_message}
-#   return render(request, 'registration/signup.html', context)
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # create user object
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # add user to the database
+      user = form.save()
+      # logging user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
