@@ -17,13 +17,16 @@ from django.contrib.auth import login
 class Home(ListView):
     template_name = 'caloriecounter/index.html'
     model = Home
+    def get_queryset(self):
+        queryset = Food.objects.all()
+        return queryset
 
 class FoodIndex(ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'
-    # def get_queryset(self):
-    #     queryset = Food.objects.filter(user=self.request.user)
-    #     return queryset
+    def get_queryset(self):
+        queryset = Food.objects.all()
+        return queryset
 
 class FoodCreate(CreateView):
     model = Food
@@ -35,10 +38,11 @@ class FoodCreate(CreateView):
 
 class FoodUpdate(UpdateView):
     model = Food
+    fields = ('name','calories')
 
 class FoodDelete(DeleteView):
     model = Food
-    success_url = '/'
+    success_url = '/caloriecounter/'
 
 
 def signup(request):

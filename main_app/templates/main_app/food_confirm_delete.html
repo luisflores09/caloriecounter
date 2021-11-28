@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+        <title>Delete</title>
+    </head>
+    <body>
+        {% block content %}
+        <h1>Delete Food</h1>
+
+        <h4>
+            Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?
+        </h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="flex-container">
+                <div class="button" onclick="document.querySelector('form').submit()">Delete</div>
+                <a href="/caloriecounter"><div class="button">Cancel</div></a>
+            </div>
+        </form>
+
+        {% endblock %}
+</body>

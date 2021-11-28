@@ -12,16 +12,16 @@
         <div>
 
           {% block content %}
-          
+
           {% if object %}
               <h1>Update {{object.name }}</h1>
           {% else %}
               <h1>Add Food</h1>
           {% endif %}
-          
+
           {% endblock %}
           <form action= "" method="post">
-              {% csrf_token %} 
+              {% csrf_token %}
               <table>
                   {{ form.as_table }}
               </table>
