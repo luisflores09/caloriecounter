@@ -13,21 +13,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 
 # Create your views here.
-def add_calories ():
-    total = 0
-    for food in Food.objects.all():
-        total += food.calories
-    return total
 
 class Home(ListView):
     template_name = 'caloriecounter/index.html'
     model = Food
-    total = add_calories()
-    def get_total(self):
-        return self.total
     def get_queryset(self):
-        queryset = Food.objects.all()
-        return queryset
+        allFoods = Food.objects.all()
+        total = 0
+        for food in Food.objects.all():
+            total += food.calories
+        return [allFoods, total]
 
 class FoodIndex(ListView):
     model = Food
