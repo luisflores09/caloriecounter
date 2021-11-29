@@ -14,7 +14,7 @@ from django.contrib.auth import login
 
 # Create your views here.
 
-class Home(ListView):
+class Home(LoginRequiredMixin, ListView):
     template_name = 'caloriecounter/index.html'
     model = Food
     def get_queryset(self):
@@ -24,14 +24,14 @@ class Home(ListView):
             total += food.calories
         return [allFoods, total]
 
-class FoodIndex(ListView):
+class FoodIndex(LoginRequiredMixin, ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'
     def get_queryset(self):
         queryset = Food.objects.all()
         return queryset
 
-class FoodCreate(CreateView):
+class FoodCreate(LoginRequiredMixin, CreateView):
     model = Food
     fields = ('name', 'calories')
     template_name = 'caloriecounter/Add_Food.html'
@@ -39,11 +39,11 @@ class FoodCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class FoodUpdate(UpdateView):
+class FoodUpdate(LoginRequiredMixin, UpdateView):
     model = Food
     fields = ('name','calories')
 
-class FoodDelete(DeleteView):
+class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
     success_url = '/caloriecounter/'
 
@@ -58,7 +58,7 @@ def signup(request):
       user = form.save()
       # logging user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('caloriecounter/')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
