@@ -5,7 +5,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Home, Food
+from .models import Food
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -13,10 +13,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 
 # Create your views here.
+def add_calories ():
+    total = 0
+    for food in Food.objects.all():
+        total += food.calories
+    return total
 
 class Home(ListView):
     template_name = 'caloriecounter/index.html'
-    model = Home
+    model = Food
+    total = add_calories()
+    def get_total(self):
+        return self.total
     def get_queryset(self):
         queryset = Food.objects.all()
         return queryset
