@@ -1,26 +1,16 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
-        <title>Calorie Counter App</title>
-    </head>
-    <body>
+{% extends './nav_bar.html' %}
+        {% block content %}
         <div>
-            <h1>Calorie Counter</h1>
-            <h3 id='date'></h3>
-            <script defer>
-                document.querySelector('#date').textContent = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
+        <h1>Calorie Counter</h1>
+        <h3 id='date'></h3>
+        <script defer>
+            document.querySelector('#date').textContent = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
             </script>
             <p style="font-size: 4em" id="#calorie-count">{{ object_list.1|default:0 }}</p>
-
+            
             <div class="flex-container">
                 <a href="/caloriecounter/create"><div class="button">Add Food</div></a>
                 <a href="/caloriecounter"><div class="button">View Foods</div></a>
             </div>
         </div>
-    </body>
-</html>
+        {% endblock %}
