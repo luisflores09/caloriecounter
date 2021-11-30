@@ -18,9 +18,9 @@ class Home(LoginRequiredMixin, ListView):
     template_name = 'caloriecounter/index.html'
     model = Food
     def get_queryset(self):
-        allFoods = Food.objects.all()
+        allFoods = Food.objects.filter(user_id=self.request.user)
         total = 0
-        for food in Food.objects.all():
+        for food in allFoods:
             total += food.calories
         return [allFoods, total]
 
@@ -32,7 +32,7 @@ class FoodIndex(LoginRequiredMixin, ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'
     def get_queryset(self):
-        queryset = Food.objects.all()
+        queryset = Food.objects.filter(user_id=self.request.user)
         return queryset
 
 class FoodCreate(LoginRequiredMixin, CreateView):
