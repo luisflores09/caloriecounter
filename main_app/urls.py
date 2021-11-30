@@ -10,4 +10,5 @@ urlpatterns = [
     path('caloriecounter/<int:pk>/update', views.FoodUpdate.as_view(), name='food_update'),
     path('caloriecounter/<int:pk>/delete/', views.FoodDelete.as_view(), name='food_delete'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/signup/caloriecounter/', views.Welcome.as_view(), name='welcome'),
 ]

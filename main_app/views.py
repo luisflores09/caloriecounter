@@ -24,6 +24,10 @@ class Home(LoginRequiredMixin, ListView):
             total += food.calories
         return [allFoods, total]
 
+class Welcome(LoginRequiredMixin, ListView):
+    model = Food
+    template_name = 'caloriecounter/welcome.html'
+
 class FoodIndex(LoginRequiredMixin, ListView):
     model = Food
     template_name = 'caloriecounter/list_foods.html'

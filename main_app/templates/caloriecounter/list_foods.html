@@ -1,14 +1,6 @@
+{% extends './nav_bar.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
-        <title>Today's Foods</title>
-    </head>
-    <body>
+        {% block content %}
         <div>
             <h1>Calorie Counter</h1>
             <h3 id='date'></h3>
@@ -23,7 +15,6 @@
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
-                {% block content %}
                   {% for food in object_list %}
                     <tr>
                       <td>{{ food.name }}</td>
@@ -32,12 +23,10 @@
                       <td class="icon-container"><a href="{% url 'food_delete' food.id %}"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></a></td>
                     </tr>
                   {% endfor %}
-                {% endblock %}
               </table>
             </div>
             <div class="flex-container">
               <a href="/"><div class="button">Back</div></a>
             </div>
         </div>
-    </body>
-</html>
+{% endblock %}
