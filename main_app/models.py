@@ -10,5 +10,6 @@ class Food(models.Model):
     name = models.CharField(max_length=100)
     calories = models.IntegerField()
     on_delete=models.CASCADE
+    timestamp = models.DateTimeField(auto_now_add=True)
     def get_absolute_url(self):
         return reverse('index')
