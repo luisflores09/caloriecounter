@@ -1,1 +1,1 @@
-web: gunicorn caloriecounter-app.wsgi
+web: gunicorn caloriecounter.wsgi
