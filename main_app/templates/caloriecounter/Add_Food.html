@@ -1,20 +1,20 @@
 {% extends './nav_bar.html' %}
-        {% block content %}
-        <div>
-
-          {% if object %}
-              <h1>Update {{object.name }}</h1>
-          {% else %}
-              <h1>Add Food</h1>
-          {% endif %}
-          <form action= "" method="post">
-              {% csrf_token %}
-                  {{ form.as_p }}
-              <div class="flex-container">
-                <div class="button" onclick="document.querySelector('form').submit()">Add Food</div>
-                <a href="/"><div class="button">Back</div></a>
-            </div>
-              </div>
-          </form>
+{% block content %}
+<div>
+    {% if object %}
+    <h1>Update {{object.name }}</h1>
+    {% else %}
+    <h1>Add Food</h1>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="flex-container">
+            <div class="button" onclick="document.querySelector('form').submit()">Add Food</div>
+            <a href="/">
+                <div class="button">Back</div>
+            </a>
         </div>
+    </form>
+</div>
 {% endblock %}
