@@ -76,12 +76,8 @@ WSGI_APPLICATION = 'caloriecounter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'link',
-        'NAME': 'caloriecounter',
-        'PASSWORD': 'link1234',
-        'HOST': '127.0.0.1',
-        'PORT': '3369',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -132,3 +128,7 @@ SIGNUP_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import django_heroku
+django_heroku.settings(locals())
