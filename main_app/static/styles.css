@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  background-color: #e3edfd;
 }
 
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #114694;
-  background-image: linear-gradient(#114694 0%, #4672b4 90%, #114694 100% );
+  background-color: #313c4d;
+  background-image: linear-gradient(#0c2447 0%, #042e6d 90%, #001b42 100% );
   color: white;
   min-height: 2em;
   width: fit-content;
@@ -19,6 +25,7 @@ body {
   padding: .5em 1.5em;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.45), 0 3px 6px 0 rgba(0, 0, 0, 0.45);
   margin: 0 2em;
+  height: 100%;
 }
 
 .button:hover {
@@ -32,7 +39,7 @@ body {
 
 .flex-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -110,4 +117,114 @@ tr:last-child > td:first-child {
 a, a:active, a:focus, a:hover {
   text-decoration: none;
   color: none;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #313c4d;
+  color: #FFFFFF;
+}
+
+nav > a {
+  text-decoration: none;
+  list-style: none;
+  padding: 0.5em 2.5em;
+  color: white;
+}
+
+nav > a:hover {
+  background-color: #50617c;
+  cursor: pointer;
+}
+
+a, a:active {
+  color: inherit;
+}
+
+form {
+  width: fit-content;
+  text-align: left;
+  margin: auto;
+}
+
+.helptext {
+  display: block;
+  font-size: 0.8em;
+  padding-bottom: 1em;
+}
+
+label {
+  padding-right: 1em;
+}
+
+input[type=text],input[type=password],input[type=email],input[type=tel],input[type=url],input[type=number],input[type=search] {
+  min-height: 1.5em;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 10px;
+  border: 0;
+  border: 1px solid rgb(155, 155, 155);
+  box-shadow:0 0 5px 4px rgba(0,0,0,0.06);
+}
+
+input[type=submit] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #114694;
+  background-image: linear-gradient(#0c2447 0%, #042e6d 90%, #001b42 100% );
+  color: white;
+  min-height: 2em;
+  width: fit-content;
+  min-width: 5em;
+  border-radius: 15px;
+  padding: .5em 1.5em;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.45), 0 3px 6px 0 rgba(0, 0, 0, 0.45);
+  margin: 0 2em;
+}
+
+input[type=submit]:hover {
+  background-image: linear-gradient(#186ab6 0%, #618ed1 90%, #1857b6 100% );
+  cursor: pointer;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid rgb(29, 34, 99);
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type=submit] {
+  margin: auto;
+  width: 80%;
+}
+
+.signup > ul {
+  visibility: visible;
+}
+
+form {
+  padding: 1em 2em;
+  border-radius: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.45), 0 6px 20px 0 rgba(0, 0, 0, 0.45);
+}
+
+.red-text {
+  color: #e70000;
+}
+
+.wide {
+  width: 80%;
+  max-width: 500px;
+  margin: 35px auto;
+}
+
+.add-food > label, input {
+  display: block;
 }
