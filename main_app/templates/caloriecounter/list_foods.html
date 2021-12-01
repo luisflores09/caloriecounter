@@ -1,33 +1,33 @@
 {% extends './nav_bar.html' %}
 {% load static %}
-        {% block content %}
-        <div>
-            <h1>Calorie Counter</h1>
-            <h3 id='date'></h3>
-            <script defer>
-                document.querySelector('#date').textContent = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
-            </script>
-            <div class="flex-container">
-              <table>
-                <tr>
-                  <th>Food Name</th>
-                  <th>Calorie Amount</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-                  {% for food in object_list %}
-                    <tr>
-                      <td>{{ food.name }}</td>
-                      <td>{{ food.calories }}</td>
-                      <td class="icon-container"><a href="{% url 'food_update' food.id %}"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></a></td>
-                      <td class="icon-container"><a href="{% url 'food_delete' food.id %}"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></a></td>
-                    </tr>
-                  {% endfor %}
-              </table>
-            </div>
-            <div class="flex-container">
-              <a href="/caloriecounter/create"><div class="button">Add Food</div></a>
-              <a href="/"><div class="button">Back</div></a>
-            </div>
-        </div>
+{% block content %}
+  <div>
+      <h1>Calorie Counter</h1>
+      <h3 id='date'></h3>
+      <script defer>
+          document.querySelector('#date').textContent = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
+      </script>
+      <div class="flex-container">
+        <table>
+          <tr>
+            <th>Food Name</th>
+            <th>Calorie Amount</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+            {% for food in object_list %}
+              <tr>
+                <td>{{ food.name }}</td>
+                <td>{{ food.calories }}</td>
+                <td class="icon-container"><a href="{% url 'food_update' food.id %}"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></a></td>
+                <td class="icon-container"><a href="{% url 'food_delete' food.id %}"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></a></td>
+              </tr>
+            {% endfor %}
+        </table>
+      </div>
+      <div class="flex-container">
+        <a href="/caloriecounter/create"><div class="button">Add Food</div></a>
+        <a href="/"><div class="button">Back</div></a>
+      </div>
+  </div>
 {% endblock %}

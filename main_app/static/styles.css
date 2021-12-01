@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
   padding: .5em 1.5em;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.45), 0 3px 6px 0 rgba(0, 0, 0, 0.45);
   margin: 0 2em;
+  height: 100%;
 }
 
 .button:hover {
@@ -37,7 +39,7 @@ body {
 
 .flex-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -221,4 +223,8 @@ form {
   width: 80%;
   max-width: 500px;
   margin: 35px auto;
+}
+
+.add-food > label, input {
+  display: block;
 }
