@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+import datetime
 from .models import Food
 
 
@@ -13,7 +13,7 @@ class Home(LoginRequiredMixin, ListView):
     model = Food
 
     def get_queryset(self):
-        allFoods = Food.objects.filter(user_id=self.request.user)
+        allFoods = Food.objects.filter(user_id=self.request.user, timestamp__gte=datetime.date.today())
         total = 0
         for food in allFoods:
             total += food.calories
