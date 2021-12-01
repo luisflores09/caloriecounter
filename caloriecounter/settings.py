@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'caloriecounter.wsgi.application'
+WSGI_APPLICATION = 'caloriecounter-app.wsgi.application'
 
 
 # Database
