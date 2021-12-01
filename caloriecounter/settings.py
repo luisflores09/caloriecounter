@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'link',
-        'NAME': 'caloriecounter',
+        'NAME': 'calorie_counter',
         'PASSWORD': 'link1234',
         'HOST': '127.0.0.1',
         'PORT': '3369',
@@ -132,3 +132,8 @@ SIGNUP_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
