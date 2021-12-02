@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 caloriecounter/settings.py
 main_app.migrations/
+Images/
