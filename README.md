@@ -26,7 +26,7 @@ App that adds up the total calorie you have for the day. Add, view, or edit the 
 <img src=Images/login.png>
 <img src=Images/signup.png>
 <img src=Images/IndexLogin.png>
-<img src=Images/View page of all foods.png>
+<img src=Images/Viewpageofallfoods.png>
 <img src=Images/addfoodpage.png>
 
 # Want to track your calories?
