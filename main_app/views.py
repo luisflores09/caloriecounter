@@ -13,10 +13,11 @@ class Home(LoginRequiredMixin, ListView):
     model = Food
 
     def get_queryset(self):
-        allFoods = Food.objects.filter(user_id=self.request.user, timestamp__gte=datetime.date.today())
+        allFoods = Food.objects.filter(user_id=self.request.user)
+        #identify only those foods which were posted on the same day, local time
+        foodsToday = filter(lambda x: x.timestamp.astimezone().day == datetime.date.today().day, allFoods)
         total = 0
-        for food in allFoods:
-
+        for food in foodsToday:
             total += food.calories
         return [allFoods, total]
 
@@ -32,6 +33,8 @@ class FoodIndex(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = Food.objects.filter(user_id=self.request.user)
+        for food in queryset:
+            food.timestamp = food.timestamp.astimezone()
         return queryset
 
 
