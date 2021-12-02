@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+caloriecounter/settings.py
+main_app.migrations/
