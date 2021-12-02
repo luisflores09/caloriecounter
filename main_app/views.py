@@ -16,6 +16,7 @@ class Home(LoginRequiredMixin, ListView):
         allFoods = Food.objects.filter(user_id=self.request.user, timestamp__gte=datetime.date.today())
         total = 0
         for food in allFoods:
+
             total += food.calories
         return [allFoods, total]
 
