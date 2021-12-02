@@ -15,7 +15,7 @@ class Home(LoginRequiredMixin, ListView):
     def get_queryset(self):
         allFoods = Food.objects.filter(user_id=self.request.user)
         #identify only those foods which were posted on the same day, local time
-        foodsToday = filter(lambda x: x.timestamp.astimezone().day == datetime.date.today().day, allFoods)
+        foodsToday = filter(lambda x: x.timestamp.astimezone().day == datetime.date.today().day and x.timestamp.astimezone().month == datetime.date.today().month and x.timestamp.astimezone().year == datetime.date.today().year, allFoods)
         total = 0
         for food in foodsToday:
             total += food.calories
