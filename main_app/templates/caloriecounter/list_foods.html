@@ -12,13 +12,15 @@
           <tr>
             <th>Food Name</th>
             <th>Calorie Amount</th>
+            <th>added</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
-            {% for food in object_list %}
+            {% for food in object_list reversed %}
               <tr>
                 <td>{{ food.name }}</td>
                 <td>{{ food.calories }}</td>
+                <td>{{ food.timestamp }}</td>
                 <td class="icon-container"><a href="{% url 'food_update' food.id %}"><img class="icon" src="{% static 'images/edit.png' %}" alt="edit button"></a></td>
                 <td class="icon-container"><a href="{% url 'food_delete' food.id %}"><img class="icon" src="{% static 'images/trashcan.png' %}" alt="delete button"></a></td>
               </tr>
